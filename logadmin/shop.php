@@ -7,14 +7,20 @@ if( $connection == false)
     echo mysqli_connect_error();
 }
 //Вытаскиваем все строки в базе данных из таблицы `sketeboard`
-$result = (mysqli_query($connection,"SELECT * FROM `sketeboard`"));
+if(empty($_GET['type'])){
+    $result = (mysqli_query($connection,"SELECT * FROM `sketeboard`"));
+}
+else{
+    $type = $_GET['type'];
+    $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` where type_id = $type"));
+}
 
 session_start();
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Скейт шоп 3pm wear</title>
+<title>Магазин</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -130,7 +136,7 @@ session_start();
                         <div style="position: relative;"><a href="single.php?id=<?php echo  $post['id']?>">
 
 
-					<img src="images/pic5.jpg" class="img-responsive" alt=""/>
+					<img src="<?php echo $post['img']?>" class="img-responsive" alt=""  width="367px" height="367px"/>
 					<span class="new-box">
 						<span class="new-label">Новое</span>
 					</span>
@@ -176,9 +182,9 @@ session_start();
 				<div class="col-md-3">
 					<ul class="footer_box">
 						<h4>Товар</h4>
-						<li><a href="#">Обычный</a></li>
-						<li><a href="#">Скоростной</a></li>
-						<li><a href="#">Трюковой</a></li>
+						<li><a href="shop.php?type=1">Обычный</a></li>
+						<li><a href="shop.php?type=2">Скоростной</a></li>
+						<li><a href="shop.php?type=3">Трюковой</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3">

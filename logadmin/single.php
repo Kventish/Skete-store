@@ -15,7 +15,13 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Скейт шоп 3pm wear</title>
+
+    <?php
+    //Выводим результат вытягивания из БД в страницу
+    while($post=mysqli_fetch_assoc($result)){
+
+    ?>
+<title><?php echo $post['name']?></title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -175,11 +181,6 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 					    </div>
 
 				        <div class="single_right">
-                            <?php
-                            //Выводим результат вытягивания из БД в страницу
-                            while($post=mysqli_fetch_assoc($result)){
-
-                            ?>
 				        	<h3><?php echo $post['name']?> </h3>
 				        	<p class="m_10"><?php echo  $post['type']?></p>
 
@@ -192,7 +193,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
     			              <li><img src="images/wish.png" alt=""><a href="#">Нравится</a></li>
     			            </ul>
 							<div class="social_buttons">
-								<h4>95 Предметов</h4>
+								<h4><?php echo $post['amount'] ?> Предметов</h4>
 
 					            <button type="button" class="btn1 btn1-default1 btn1-facebook" onclick="">
 					              <i class="icon-facebook"></i> Поделится
@@ -209,7 +210,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 				</div>
 				<div class="col-md-3">
 				  <div class="box-info-product">
-					<p class="price2">50.000Тг</p>
+					<p class="price2"><?php echo $post['price']?> Тг</p>
 					       <ul class="prosuct-qty">
 								<span>Количество:</span>
 								<select>
@@ -229,7 +230,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 			</div>
 			<div class="desc">
 			   	<h4>Описание</h4>
-			   	<p>Скоростной борд </p>
+			   	<p><?php echo $post['description']?> </p>
 			</div>
             <?php
             }

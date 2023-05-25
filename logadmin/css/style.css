@@ -1896,6 +1896,7 @@ fieldset.input input[type="submit"]:hover {
  }
  .shop_box{
  	margin-bottom:20px;
+	 grid-template-columns: repeat(1, 1fr);
  }
  .shop_desc {
 	padding: 10px;
