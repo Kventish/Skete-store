@@ -6,9 +6,10 @@ if( $connection == false)
     echo'Не удалось подключиться к бд!<br>';
     echo mysqli_connect_error();
 }
+//Сравниваем айдишники записанные в ссесию
 $id = intval($_GET['id']);
-$result = (mysqli_query($connection,"SELECT * FROM `sketeboard` WHERE id = $id "));
-
+//Вытаскиваем данные из БД и запихиваем в массив $result
+$result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skateboard`  on type_skateboard.id = sketeboard.type_id  WHERE sketeboard.id = $id  "));
 
 ?>
 <!DOCTYPE HTML>
@@ -172,9 +173,15 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` WHERE id = $id "
 
 						</ul>
 					    </div>
+
 				        <div class="single_right">
-				        	<h3>Лонгборд </h3>
-				        	<p class="m_10">Скоростной скейт</p>
+                            <?php
+                            //Выводим результат вытягивания из БД в страницу
+                            while($post=mysqli_fetch_assoc($result)){
+
+                            ?>
+				        	<h3><?php echo $post['name']?> </h3>
+				        	<p class="m_10"><?php echo  $post['type']?></p>
 
 							<div class="btn_form">
 							   <form>
@@ -224,7 +231,9 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` WHERE id = $id "
 			   	<h4>Описание</h4>
 			   	<p>Скоростной борд </p>
 			</div>
-
+            <?php
+            }
+            ?>
 
 				    </div>
 				</div>

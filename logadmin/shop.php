@@ -8,12 +8,14 @@ if( $connection == false)
 }
 //Вытаскиваем все строки в базе данных из таблицы `sketeboard`
 $result = (mysqli_query($connection,"SELECT * FROM `sketeboard`"));
+$result2 = (mysqli_query($connection,`SELECT * FROM sketeboard join type_skateboard  on type_skateboard.id = sketeboard.type_id  WHERE type_skateboard.type =  `));
+
 session_start();
 ?>
 <!DOCTYPE HTML>
 <head>
 <title>Скейт шоп 3pm wear</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href=`css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -121,9 +123,9 @@ session_start();
 				<div class="col-md-3 shop_box">
                     <?php
                     //Выводим результат вытягивания из БД в страницу
-                    while($post=mysqli_fetch_assoc($result)){
+                    while($post=mysqli_fetch_assoc($result2)){
                     ?>
-                        <div style="position: relative;"><a href="single.php">
+                        <div style="position: relative;"><a href="single.php?id=<?php echo  $post['id']?>">
 
 
 					<img src="images/pic5.jpg" class="img-responsive" alt=""/>
@@ -132,14 +134,15 @@ session_start();
 					</span>
 
 					<div class="shop_desc">
-						<h3><a href="#"><?php echo $post['name']?></a></h3>
-						<p><?php echo $post['description']?></p>
+						<h3><a href="single.php?id=<?php echo  $post['id']?>"><?php echo $post['name']?></a></h3>
+						<p><?php var_dump($post);?></p>
 						<span class="reducedfrom">100.000Тг</span>
 						<span class="actual"><?php echo $post['price']?>Тг</span><br>
 						<ul class="buttons">
 							<li class="cart"><a href="#">Добавить в корзину</a></li>
-							<li class="shop_btn"><a href="post.php?id=<?php echo $post['id']?>">Подробнее</a>
+							<li class="shop_btn"><a href="single.php?id=<?php echo  $post['id']?>">Подробнее</a>
                                 <?php
+                                //Ставим условие, что при нажатии на ссылку, будет переходить на правильный продукт при проверки id
                                 if (isset($_SESSION['toCompare']) && count($_SESSION['toCompare']))
                                 {
                                     $_SESSION['toCompare'][] = $id;
