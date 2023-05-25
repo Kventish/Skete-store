@@ -89,7 +89,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 			  <div class="col-md-12">
 				 <div class="header-left">
 					 <div class="logo">
-						<a href="index.html"><img src="images/logo.png" alt=""/></a>
+						<a href="index.php"><img src="images/logo.png" alt=""/></a>
 					 </div>
 					 <div class="menu">
 						  <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
@@ -248,9 +248,9 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 				<div class="col-md-3">
 					<ul class="footer_box">
 						<h4>Товар</h4>
-						<li><a href="#">Обычный</a></li>
-						<li><a href="#">Скоростной</a></li>
-						<li><a href="#">Трюковой</a></li>
+						<li><a href="shop.php?type=1">Обычный</a></li>
+						<li><a href="shop.php?type=2">Скоростной</a></li>
+						<li><a href="shop.php?type=3">Трюковой</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3">
