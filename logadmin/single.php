@@ -112,7 +112,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 								</form>
 							</div>
 						</div>
-						<script src="js/classie.js"></script>
+						<script src="js/classie.js" defer></script>
 						<script src="js/uisearch.js"></script>
 						<script>
 							new UISearch( document.getElementById( 'sb-search' ) );
@@ -190,7 +190,15 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 							  </form>
 							</div>
 							<ul class="add-to-links">
-    			              <li><img src="images/wish.png" alt="""><a href="like.php?id=<?php echo $id?>">Нравится</a></li>
+    			              <li class="ttt">
+                                  <img src="images/wish.png" alt="" class="img-heart">
+                                  <a class="like" href="like.php?id=<?php echo $id?>"><?php if($post['is_liked'] == 1){
+                                      echo "Добавлено";
+                                  }
+                                  else{
+                                      echo "Добавить";
+                                  };?></a>
+                              </li>
     			            </ul>
 							<div class="social_buttons">
 								<h4><?php echo $post['amount'] ?> Предметов</h4>
