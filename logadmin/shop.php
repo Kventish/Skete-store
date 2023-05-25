@@ -8,14 +8,14 @@ if( $connection == false)
 }
 //Вытаскиваем все строки в базе данных из таблицы `sketeboard`
 $result = (mysqli_query($connection,"SELECT * FROM `sketeboard`"));
-$result2 = (mysqli_query($connection,`SELECT * FROM sketeboard join type_skateboard  on type_skateboard.id = sketeboard.type_id  WHERE type_skateboard.type =  `));
 
 session_start();
 ?>
 <!DOCTYPE HTML>
+<html>
 <head>
 <title>Скейт шоп 3pm wear</title>
-<link href=`css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -84,7 +84,7 @@ session_start();
 									<span class="sb-icon-search"> </span>
 								</form>
 							</div>
-						</div>
+                         </div>
 						<script src="js/classie.js"></script>
 						<script src="js/uisearch.js"></script>
 						<script>
@@ -116,6 +116,8 @@ session_start();
 		 </div>
 	    </div>
 	  </div>
+
+
      <div class="main">
       <div class="shop_top">
 		<div class="container">
@@ -123,7 +125,7 @@ session_start();
 				<div class="col-md-3 shop_box">
                     <?php
                     //Выводим результат вытягивания из БД в страницу
-                    while($post=mysqli_fetch_assoc($result2)){
+                    while($post=mysqli_fetch_assoc($result)){
                     ?>
                         <div style="position: relative;"><a href="single.php?id=<?php echo  $post['id']?>">
 
@@ -135,7 +137,7 @@ session_start();
 
 					<div class="shop_desc">
 						<h3><a href="single.php?id=<?php echo  $post['id']?>"><?php echo $post['name']?></a></h3>
-						<p><?php var_dump($post);?></p>
+						<p><?php echo $post['description']?></p>
 						<span class="reducedfrom">100.000Тг</span>
 						<span class="actual"><?php echo $post['price']?>Тг</span><br>
 						<ul class="buttons">
@@ -163,6 +165,8 @@ session_start();
 
 				</a></div>
 			</div>
+
+
 		 </div>
 	   </div>
 	  </div>
