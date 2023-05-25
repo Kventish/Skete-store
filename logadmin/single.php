@@ -190,7 +190,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 							  </form>
 							</div>
 							<ul class="add-to-links">
-    			              <li><img src="images/wish.png" alt=""><a href="#">Нравится</a></li>
+    			              <li><img src="images/wish.png" alt="""><a href="like.php?id=<?php echo $id?>">Нравится</a></li>
     			            </ul>
 							<div class="social_buttons">
 								<h4><?php echo $post['amount'] ?> Предметов</h4>
