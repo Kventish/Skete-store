@@ -152,8 +152,8 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 					     <ul id="etalage">
 							<li>
 								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="images/3.jpg" />
-									<img class="etalage_source_image" src="images/3.jpg" />
+									<img class="etalage_thumb_image" src="<?php echo $post['img']?>" />
+									<img class="etalage_source_image" src="<?php echo $post['img']?>" />
 								</a>
 							</li>
 							<li>
