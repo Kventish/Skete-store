@@ -1,6 +1,6 @@
 <?php
 //Подключение к базе данных при открытии страницы
-$connection = mysqli_connect("localhost", "root", "root", "skeytmagazin");
+$connection = mysqli_connect("localhost", "root", "", "skeytmagazin");
 if( $connection == false)
 {
     echo'Не удалось подключиться к бд!<br>';
