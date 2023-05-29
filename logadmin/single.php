@@ -95,7 +95,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 						  <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
 						    <ul class="nav" id="nav">
 						    	<li class="current"><a href="shop.php">Магазин</a></li>
-								<li><a href="contact.html">Контакты</a></li>
+								<li><a href="contact.php">Контакты</a></li>
 								<div class="clear"></div>
 							</ul>
 							<script type="text/javascript" src="js/responsive-nav.js"></script>
@@ -126,11 +126,9 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 						  </div>
 						   <div class="clear"></div>
 						  <li class="list_img"><img src="images/1.jpg" alt=""/></li>
-						  <li class="list_desc"><h4><a href="#">Покупатель</a></h4><span class="actual"> 0шт
-                         0.00Тг</span></li>
+						  <li class="list_desc"><h4>Покупатель</h4></li>
 						  <div class="login_buttons">
-							 <div class="check_button"><a href="checkout.html">Проверить вход</a></div>
-							 <div class="login_button"><a href="login.html">Логин</a></div>
+							 <div class="check_button"><a href="checkout.php">Проверить корзину</a></div>
 							 <div class="clear"></div>
 						  </div>
 						  <div class="clear"></div>
@@ -263,41 +261,25 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 				</div>
 				<div class="col-md-3">
 					<ul class="footer_box">
-						<h4>О нас</h4>
-						<li><a href="#">Карьера и стажировки</a></li>
-						<li><a href="#">Спонсорство</a></li>
-						<li><a href="#">Запрос каталога/Загрузки</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3">
-					<ul class="footer_box">
-						<h4>служба поддержки клиентов</h4>
-						<li><a href="#">связаться с нами</a></li>
-						<li><a href="#">Доставка и отслеживание заказа</a></li>
-						<li><a href="#">Легкая отдача</a></li>
-
-
-					</ul>
-				</div>
-				<div class="col-md-3">
-					<ul class="footer_box">
 						<h4>Рассылка</h4>
 						<div class="footer_search">
-						   <form>
-							<input type="text" value="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'email';}">
-							<input type="submit" value="Вперед">
+							<?php
+								if(isset($_POST['Change']))
+								{
+									header('Location: contact.php');
+								}
+							?>
+						   <form method="get" action="contact.php">
+							<input type="text" placeholder="E-mail" name="Footer_feedback_1">
+							<input type="submit" value="Вперед" class="feedback" name="Footer_feedback_2">
 						   </form>
 						</div>
-						<ul class="social">
-						  <li class="instagram"><a href="#"><span> </span></a></li>
-						  <li class="youtube"><a href="https://www.youtube.com/"><span> </span></a></li>
-						</ul>
 					   </ul>
 				</div>
 			</div>
 			<div class="row footer_bottom">
 				<div class="copy">
-				   <p>© 2019
+				   <p>© 2023
 
 			   </div>
 		</div>

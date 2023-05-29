@@ -74,7 +74,7 @@ session_start();
 						  <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
 						    <ul class="nav" id="nav">
 						    	<li class="current"><a href="shop.php">Магазин</a></li>
-								<li><a href="contact.html">Контакты</a></li>
+								<li><a href="contact.php">Контакты</a></li>
 								<div class="clear"></div>
 							</ul>
 							<script type="text/javascript" src="js/responsive-nav.js"></script>
@@ -105,11 +105,9 @@ session_start();
 						  </div>
 						   <div class="clear"></div>
 						  <li class="list_img"><img src="images/1.jpg" alt=""/></li>
-						  <li class="list_desc"><h4><a href="#">Покупатель</a></h4><span class="actual"> 0шт
-                          0.00Тг</span></li>
+						  <li class="list_desc"><h4>Покупатель</h4><span class="actual"></span></li>
 						  <div class="login_buttons">
-							 <div class="check_button"><a href="checkout.html">Проверить вход</a></div>
-							 <div class="login_button"><a href="login.html">Логин</a></div>
+							 <div class="check_button"><a href="checkout.php">Проверить корзину</a></div>
 							 <div class="clear"></div>
 						  </div>
 						  <div class="clear"></div>
@@ -128,7 +126,16 @@ session_start();
       <div class="shop_top">
 		<div class="container">
 			<div class="row shop_box-top">
+			<div class="col-md-4">
+					<ul class="checkout_box" style="list-style: none; ">
+						<h4>Сортировка товара</h4>
+						<li><a href="shop.php?type=1" style="color: #000;">Обычный</a></li>
+						<li><a href="shop.php?type=2" style="color: #000;">Скоростной</a></li>
+						<li><a href="shop.php?type=3" style="color: #000;">Трюковой</a></li>
+					</ul>
+				</div>
 				<div class="col-md-3 shop_box">
+					
                     <?php
                     //Выводим результат вытягивания из БД в страницу
                     while($post=mysqli_fetch_assoc($result)){
@@ -147,7 +154,6 @@ session_start();
 						<span class="reducedfrom">100.000Тг</span>
 						<span class="actual"><?php echo $post['price']?>Тг</span><br>
 						<ul class="buttons">
-							<li class="cart"><a href="#">Добавить в корзину</a></li>
 							<li class="shop_btn"><a href="single.php?id=<?php echo  $post['id']?>">Подробнее</a>
                                 <?php
                                 //Ставим условие, что при нажатии на ссылку, будет переходить на правильный продукт при проверки id
@@ -189,41 +195,26 @@ session_start();
 				</div>
 				<div class="col-md-3">
 					<ul class="footer_box">
-						<h4>О нас</h4>
-						<li><a href="#">Карьера и стажировки</a></li>
-						<li><a href="#">Спонсорство</a></li>
-						<li><a href="#">Запрос каталога/Загрузки</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3">
-					<ul class="footer_box">
-						<h4>служба поддержки клиентов</h4>
-						<li><a href="#">связаться с нами</a></li>
-						<li><a href="#">Доставка и отслеживание заказа</a></li>
-						<li><a href="#">Легкая отдача</a></li>
-
-
-					</ul>
-				</div>
-				<div class="col-md-3">
-					<ul class="footer_box">
 						<h4>Рассылка</h4>
 						<div class="footer_search">
-						   <form>
-							<input type="text" value="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'email';}">
-							<input type="submit" value="Вперед">
+							<?php
+								if(isset($_POST['Change']))
+								{
+									$new_url = 'http://localhost/Skete-store/logadmin/contact.php';
+									header('Location: '.$new_url);
+								}
+							?>
+						   <form method="get" action="contact.php">
+							<input type="text" placeholder="E-mail" name="Footer_feedback_1">
+							<input type="submit" value="Вперед" class="feedback" name="Footer_feedback_2">
 						   </form>
 						</div>
-						<ul class="social">
-						  <li class="instagram"><a href="#"><span> </span></a></li>
-						  <li class="youtube"><a href="https://www.youtube.com/"><span> </span></a></li>
-						</ul>
 					   </ul>
 				</div>
 			</div>
 			<div class="row footer_bottom">
 				<div class="copy">
-				   <p>© 2019
+				   <p>© 2023
 
 			   </div>
 		</div>

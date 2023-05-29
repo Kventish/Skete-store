@@ -59,7 +59,7 @@
 						  <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
 						    <ul class="nav" id="nav">
 						    	<li><a href="shop.php">Магазин</a></li>
-								<li><a href="contact.html">Контакты</a></li>
+								<li><a href="contact.php">Контакты</a></li>
 								<div class="clear"></div>
 							</ul>
 							<script type="text/javascript" src="js/responsive-nav.js"></script>
@@ -90,11 +90,10 @@
 						  </div>
 						   <div class="clear"></div>
 						  <li class="list_img"><img src="images/1.jpg" alt=""/></li>
-						  <li class="list_desc"><h4><a href="#">Покупатель</a></h4><span class="actual"> 0шт
-                          0.00Тг</span></li>
+						  <li class="list_desc"><h4>Покупатель</h4></li>
 						  <div class="login_buttons">
-							 <div class="check_button"><a href="checkout.html">Проверить вход</a></div>
-							 <div class="login_button"><a href="login.html">Логин</a></div>
+							 <div class="check_button"><a href="checkout.php">Проверить корзину
+							 </a></div>
 							 <div class="clear"></div>
 						  </div>
 						  <div class="clear"></div>
@@ -116,7 +115,6 @@
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <h1 class="title">Преодолевая любые<br>Трудности</h1>
-                        <div class="button"><a href="#">Подробнее</a></div>
                     </div>
                 </div>
             </div>
@@ -125,7 +123,6 @@
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <h1 class="title">Преодолевая любые<br>Трудности</h1>
-                       	<div class="button"><a href="#">Подробнее</a></div>
                     </div>
                 </div>
             </div>
@@ -184,7 +181,7 @@
 			<div class="close_but"><i class="close1"> </i></div>
 			  <div class="row">
 				<div class="col-md-3 top_box">
-				  <div class="view view-ninth"><a href="single.php">
+				  <div class="view view-ninth">
                     <img src="images/pic1.jpg" class="img-responsive" alt=""/>
                     <div class="mask mask-1"> </div>
                     <div class="mask mask-2"> </div>
@@ -192,14 +189,14 @@
                         <h2>Колеса</h2>
                         <p>Прочные, выдерживают не плохой вес</p>
                       </div>
-                   </a> </div
+                    </div
 				</div>
 
-                  <h4 class="m_4"><a href="#">Келеса гелевые/пластик</a></h4>
+                  <h4 class="m_4"><a href="shop.php">Келеса гелевые/пластик</a></h4>
 
                 </div>
                 <div class="col-md-3 top_box">
-					<div class="view view-ninth"><a href="single.php">
+					<div class="view view-ninth">
                     <img src="images/pic2.jpg" class="img-responsive" alt=""/>
                     <div class="mask mask-1"> </div>
                     <div class="mask mask-2"> </div>
@@ -207,11 +204,11 @@
                         <h2>Платформа</h2>
                         <p>Прочные, выдерживают не плохой вес</p>
                       </div>
-                    </a> </div>
-                   <h4 class="m_4"><a href="#">Платформа пластик/дерево</a></h4>
+                     </div>
+                   <h4 class="m_4"><a href="shop.php">Платформа пластик/дерево</a></h4>
 				</div>
 				<div class="col-md-3 top_box">
-					<div class="view view-ninth"><a href="single.php">
+					<div class="view view-ninth">
                     <img src="images/pic3.jpg" class="img-responsive" alt=""/>
                     <div class="mask mask-1"> </div>
                     <div class="mask mask-2"> </div>
@@ -219,11 +216,11 @@
                         <h2>Принт</h2>
                         <p>В один цвет, либо другой различный</p>
                       </div>
-                    </a> </div>
-                   <h4 class="m_4"><a href="#">Принт</a></h4>
+                    </div>
+                   <h4 class="m_4"><a href="shop.php">Принт</a></h4>
 				</div>
 				<div class="col-md-3 top_box1">
-					<div class="view view-ninth"><a href="single.php">
+					<div class="view view-ninth">
                     <img src="images/pic4.jpg" class="img-responsive" alt=""/>
                     <div class="mask mask-1"> </div>
                     <div class="mask mask-2"> </div>
@@ -231,64 +228,48 @@
                         <h2>Hover Style #9</h2>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
                       </div>
-                     </a> </div>
-                   <h4 class="m_4"><a href="#">Скоростной, трюковой, Обычный</a></h4>
+                    </div>
+                   <h4 class="m_4"><a href="shop.php">Скоростной, трюковой, Обычный</a></h4>
                    <p class="m_5">Разные виды</p>
 				</div>
 			</div>
 		 </div>
 	    </div>
 		<div class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3">
-						<ul class="footer_box">
-							<h4>Товар</h4>
-							<li><a href="shop.php?type=1">Обычный</a></li>
-							<li><a href="shop.php?type=2">Скоростной</a></li>
-							<li><a href="shop.php?type=3">Трюковой</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<ul class="footer_box">
-							<h4>О нас</h4>
-							<li><a href="#">Карьера и стажировки</a></li>
-							<li><a href="#">Спонсорство</a></li>
-							<li><a href="#">Запрос каталога/Загрузки</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<ul class="footer_box">
-							<h4>служба поддержки клиентов</h4>
-							<li><a href="#">связаться с нами</a></li>
-							<li><a href="#">Доставка и отслеживание заказа</a></li>
-							<li><a href="#">Легкая отдача</a></li>
-
-
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<ul class="footer_box">
-							<h4>Рассылка</h4>
-							<div class="footer_search">
-							   <form>
-								<input type="text" value="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'email';}">
-								<input type="submit" value="Вперед">
-							   </form>
-							</div>
-							<ul class="social">
-							  <li class="instagram"><a href="#"><span> </span></a></li>
-							  <li class="youtube"><a href="https://www.youtube.com/"><span> </span></a></li>
-							</ul>
-						   </ul>
-					</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="footer_box">
+						<h4>Товар</h4>
+						<li><a href="shop.php?type=1">Обычный</a></li>
+						<li><a href="shop.php?type=2">Скоростной</a></li>
+						<li><a href="shop.php?type=3">Трюковой</a></li>
+					</ul>
 				</div>
-				<div class="row footer_bottom">
-					<div class="copy">
-					   <p>© 2019
-
-				   </div>
+				<div class="col-md-3">
+					<ul class="footer_box">
+						<h4>Рассылка</h4>
+						<div class="footer_search">
+							<?php
+								if(isset($_POST['Change']))
+								{
+									header('Location: contact.php');
+								}
+							?>
+						   <form method="get" action="contact.php">
+							<input type="text" placeholder="E-mail" name="Footer_feedback_1">
+							<input type="submit" value="Вперед" class="feedback" name="Footer_feedback_2">
+						   </form>
+						</div>
+					   </ul>
+				</div>
 			</div>
+			<div class="row footer_bottom">
+				<div class="copy">
+				   <p>© 2023
+
+			   </div>
 		</div>
+	</div>
 	</body>
 	</html>
