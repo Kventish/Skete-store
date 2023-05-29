@@ -7,7 +7,7 @@
 								print 'Заполните все поля ввода';
 							}
 							else{
-								$connection = mysqli_connect("localhost", "root", "root", "skeytmagazin");
+								$connection = mysqli_connect("localhost", "root", "", "skeytmagazin");
 								if( $connection == false)
 								{
 									echo'Не удалось подключиться к бд!<br>';

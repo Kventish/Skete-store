@@ -200,8 +200,7 @@ session_start();
 							<?php
 								if(isset($_POST['Change']))
 								{
-									$new_url = 'http://localhost/Skete-store/logadmin/contact.php';
-									header('Location: '.$new_url);
+									header('Location: contact.php');
 								}
 							?>
 						   <form method="get" action="contact.php">
