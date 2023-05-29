@@ -6,11 +6,12 @@ if( $connection == false)
     echo'Не удалось подключиться к бд!<br>';
     echo mysqli_connect_error();
 }
-//Вытаскиваем все строки в базе данных из таблицы `sketeboard`
+//Вытаскиваем все строки в базе данных из таблицы `sketeboard`, если в таблице нет значений, показываем пустую страницу
 if(empty($_GET['type'])){
     $result = (mysqli_query($connection,"SELECT * FROM `sketeboard`"));
 }
 else{
+	//Если в бд есть значения, выводим их на страницу
     $type = $_GET['type'];
     $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` where type_id = $type"));
 }
@@ -132,6 +133,7 @@ session_start();
 						<li><a href="shop.php?type=1" style="color: #000;">Обычный</a></li>
 						<li><a href="shop.php?type=2" style="color: #000;">Скоростной</a></li>
 						<li><a href="shop.php?type=3" style="color: #000;">Трюковой</a></li>
+						<li><a href="shop.php" style="color: #000;">Сбросить</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 shop_box">
