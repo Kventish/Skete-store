@@ -16,7 +16,7 @@ switch ($action) {
         $result = mysqli_fetch_assoc($skate_id);
         $count = $result['count'];
         if($count > 0){
-            mysqli_query($connection,"UPDATE cart SET amount_skate = amount_skate + 1");
+            mysqli_query($connection,"UPDATE cart SET amount_skate = amount_skate + 1 WHERE skate_id = $id");
         }
         else{
             mysqli_query($connection,"INSERT INTO cart (`skate_id`, `amount_skate`) VALUES($id, 1)");
@@ -33,11 +33,14 @@ switch ($action) {
 
         $count = $result['amount_skate'];
         if($count > 1){
-            mysqli_query($connection,"UPDATE cart SET amount_skate = amount_skate - 1");
+            mysqli_query($connection,"UPDATE cart SET amount_skate = amount_skate - 1 WHERE skate_id = $id");
         }
+
         else{
             mysqli_query($connection,"DELETE FROM cart WHERE skate_id = $id");
+            header('Location: shop.php');
         }
+
         break;
 }
 

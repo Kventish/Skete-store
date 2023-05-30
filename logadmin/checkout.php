@@ -1,3 +1,14 @@
+<?php
+
+$connection = mysqli_connect("localhost", "root", "", "skeytmagazin");
+if( $connection == false)
+{
+    echo'Не удалось подключиться к бд!<br>';
+    echo mysqli_connect_error();
+}
+//Вытаскиваем данные из БД и запихиваем в массив $result
+$result = (mysqli_query($connection,"SELECT * FROM `cart` join `sketeboard`  on cart.skate_id = sketeboard.id"));
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -114,83 +125,57 @@
 	</div>
 	<div class="main">
 		<div class="shop_top">
+
 			<div class="container">
+
 			<div style="display: grid; gap: 20px; width: 100%; grid-template-columns: 1fr 1fr 1fr;">
-			<div style="position: relative;"><a href="single.php?id=2">
-					<img src="https://pro-market.kz/image/cache/catalog/import_yml/105/955/skejtbordvsborefootworkf1-1000x1000.jpg" class="img-responsive" alt="" width="367px" height="367px">
+			<?php
+				if($result)
+					//Выводим результат вытягивания из БД в страницу
+					while($post=mysqli_fetch_assoc($result)){
+			?>
+			<div style="position: relative;">
+
+					<a href="single.php?id=<?php echo $post['id']?>">
+					<img src="<?php echo $post['img']?>" class="img-responsive" alt="" width="367px" height="367px">
 					<span class="new-box">
 						<span class="new-label">Новое</span>
 					</span>
 
 					</a>
-					<div class="shop_desc"><a href="single.php?id=2">
+					<div class="shop_desc"><a href="single.php?id=<?php echo $post['id']?>">
 						</a>
-						<h3><a href="single.php?id=2"></a><a href="single.php?id=2">Скейтборд 1</a></h3>
-						<p>Доска, состоящая обычно из 7 слоёв канадского шпона, установленная на колёса небольшого диаметра (ролики).</p>
+						<h3><a href="single.php?id=2"></a>
+						<a href="single.php?id=<?php echo $post['id']?>"><?php echo $post['name']?></a></h3>
+						<p><?php echo $post['description']?></p>
 						<span class="reducedfrom">100.000Тг</span>
-						<span class="actual">30000Тг</span><br>
+						<span class="actual"><?php echo $post['price']?> Тг</span><br>
 						<ul class="buttons">
-							<li class=""><a href="cart.php?action=minus">-</a>
-							<p>0</p>
-							<a href="cart.php?action=plus&id=<?php echo 1?>">+</a>
 
+							<li class=""><a href="cart.php?action=minus&id=<?php echo $post['id']?>"">-</a>
+							<p><?php echo $post['amount_skate']?></p>
+							<a href="cart.php?action=plus&id=<?php echo $post['id']?>">+</a>
 							</li>
+							
 							<div class="clear"> </div>
 						</ul>
 					</div>
+
 				</div>
-
-				<!-- <div style="position: relative;"><a href="single.php?id=2">
-					<img src="https://pro-market.kz/image/cache/catalog/import_yml/105/955/skejtbordvsborefootworkf1-1000x1000.jpg" class="img-responsive" alt="" width="367px" height="367px">
-					<span class="new-box">
-						<span class="new-label">Новое</span>
-					</span>
-
-					</a>
-					<div class="shop_desc"><a href="single.php?id=2">
-						</a>
-						<h3><a href="single.php?id=2"></a><a href="single.php?id=2">Скейтборд 2</a></h3>
-						<p>Доска, состоящая обычно из 7 слоёв канадского шпона, установленная на колёса небольшого диаметра (ролики).</p>
-						<span class="reducedfrom">100.000Тг</span>
-						<span class="actual">30000Тг</span><br>
-						<ul class="buttons">
-							<li class="shop_btn"><a href="single.php?id=2">Подробнее</a>
-							</li>
-							<div class="clear"> </div>
-						</ul>
-					</div>
-				</div>
-
-
-				<div style="position: relative;"><a href="single.php?id=2">
-					<img src="https://pro-market.kz/image/cache/catalog/import_yml/105/955/skejtbordvsborefootworkf1-1000x1000.jpg" class="img-responsive" alt="" width="367px" height="367px">
-					<span class="new-box">
-						<span class="new-label">Новое</span>
-					</span>
-
-					</a>
-					<div class="shop_desc"><a href="single.php?id=2">
-						</a>
-						<h3><a href="single.php?id=2"></a><a href="single.php?id=2">Скейтборд 3</a></h3>
-						<p>Доска, состоящая обычно из 7 слоёв канадского шпона, установленная на колёса небольшого диаметра (ролики).</p>
-						<span class="reducedfrom">100.000Тг</span>
-						<span class="actual">30000Тг</span><br>
-						<ul class="buttons">
-							<li class="shop_btn"><a href="single.php?id=2">Подробнее</a>
-							</li>
-							<div class="clear"> </div>
-						</ul>
-					</div>
-				</div> -->
-
-
+				<?php
+						}
+					?>
 			</div>
+
 				<!-- <h4 class="title">КОРЗИНА ДЛЯ ПОКУПОК ПУСТА</h4>
 			<p class="cart">В вашей корзине покупок нет товаров.<br>Нажмите<a href="shop.php"> здесь</a> чтобы продолжить покупки</p> -->
 
 			</div>
+
 		</div>
+
 	</div>
+
 	<div class="footer">
 		<div class="container">
 			<div class="row">

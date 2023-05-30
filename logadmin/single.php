@@ -217,20 +217,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 				<div class="col-md-3">
 				  <div class="box-info-product">
 					<p class="price2"><?php echo $post['price']?> Тг</p>
-					       <ul class="prosuct-qty">
-								<span>Количество:</span>
-								<select>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-								</select>
-							</ul>
-							<button type="submit" name="Submit" class="exclusive">
-							   <span>Купить</span>
-							</button>
+							<a href="cart.php?action=plus&id=<?php echo $id?>">Купить</a>
 				   </div>
 			   </div>
 			</div>

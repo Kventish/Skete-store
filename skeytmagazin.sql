@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 29 2023 г., 14:20
+-- Время создания: Май 30 2023 г., 08:44
 -- Версия сервера: 10.4.27-MariaDB
--- Версия PHP: 8.2.0
+-- Версия PHP: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `skate_id`, `amount_skate`) VALUES
-(0, 1, 6);
+(5, 2, 3),
+(8, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -148,6 +149,12 @@ ALTER TABLE `type_skateboard`
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `feedback`
