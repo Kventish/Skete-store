@@ -103,15 +103,6 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 	    		    <div class="clear"></div>
 	    	    </div>
 	            <div class="header_right">
-				   <div class="search-box">
-							<div id="sb-search" class="sb-search">
-								<form>
-									<input class="sb-search-input" placeholder="Поиск" type="search" name="search" id="search">
-									<input class="sb-search-submit" type="submit" value="">
-									<span class="sb-icon-search"> </span>
-								</form>
-							</div>
-						</div>
 						<script src="js/classie.js" defer></script>
 						<script src="js/uisearch.js"></script>
 						<script>
@@ -183,9 +174,6 @@ $result = (mysqli_query($connection,"SELECT * FROM `sketeboard` join `type_skate
 				        	<p class="m_10"><?php echo  $post['type']?></p>
 
 							<div class="btn_form">
-							   <form>
-								 <input type="submit" value="Купить" title="">
-							  </form>
 							</div>
 							<ul class="add-to-links">
     			              <li class="ttt">

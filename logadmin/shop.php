@@ -83,15 +83,6 @@ session_start();
 	    		    <div class="clear"></div>
 	    	    </div>
 	            <div class="header_right">
-				  <div class="search-box">
-							<div id="sb-search" class="sb-search">
-								<form>
-									<input class="sb-search-input" placeholder="Поиск" type="search" name="search" id="search">
-									<input class="sb-search-submit" type="submit" value="">
-									<span class="sb-icon-search"> </span>
-								</form>
-							</div>
-                         </div>
 						<script src="js/classie.js"></script>
 						<script src="js/uisearch.js"></script>
 						<script>

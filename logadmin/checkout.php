@@ -83,20 +83,6 @@ $result = (mysqli_query($connection,"SELECT * FROM `cart` join `sketeboard`  on 
 						<div class="clear"></div>
 					</div>
 					<div class="header_right">
-						<div class="search-box">
-							<div id="sb-search" class="sb-search">
-								<form>
-									<input class="sb-search-input" placeholder="Поиск" type="search" name="search" id="search">
-									<input class="sb-search-submit" type="submit" value="">
-									<span class="sb-icon-search"> </span>
-								</form>
-							</div>
-						</div>
-						<script src="js/classie.js"></script>
-						<script src="js/uisearch.js"></script>
-						<script>
-							new UISearch(document.getElementById('sb-search'));
-						</script>
 						<ul class="icon1 sub-icon1 profile_img">
 							<li><a class="active-icon c1" href="#"> </a>
 								<ul class="sub-icon1 list">
@@ -128,7 +114,7 @@ $result = (mysqli_query($connection,"SELECT * FROM `cart` join `sketeboard`  on 
 
 			<div class="container">
 
-			<div style="display: grid; gap: 20px; width: 100%; grid-template-columns: 1fr 1fr 1fr;">
+			<div class="col-md-3 shop_box">
 			<?php
 				if($result)
 					//Выводим результат вытягивания из БД в страницу
@@ -166,6 +152,22 @@ $result = (mysqli_query($connection,"SELECT * FROM `cart` join `sketeboard`  on 
 						}
 					?>
 			</div>
+			<form method="post" action="cart_feedback.php">
+					<div class="to">
+                     	<input type="text" name="name" class="text" placeholder="Имя:">
+					 	<input type="text" name="email" class="text" placeholder="E-mail:" value="<?php echo 
+						//Выводим значение которое мы отправили с футера
+						isset($_GET['Footer_feedback_1']) ? $_GET['Footer_feedback_1'] : ''
+						?>">
+					</div>
+					<div class="text">
+	                   <textarea value="Сообщение:" name="discription" placeholder="Сообщение:"></textarea>
+	                   <div class="form-submit">
+			           <input name="submit" type="submit" value="Купить"><br>
+			           </div>
+	                </div>
+	                <div class="clear"></div>
+                   </form>
 
 				<!-- <h4 class="title">КОРЗИНА ДЛЯ ПОКУПОК ПУСТА</h4>
 			<p class="cart">В вашей корзине покупок нет товаров.<br>Нажмите<a href="shop.php"> здесь</a> чтобы продолжить покупки</p> -->
@@ -197,8 +199,10 @@ $result = (mysqli_query($connection,"SELECT * FROM `cart` join `sketeboard`  on 
 							}
 							?>
 							<form method="get" action="contact.php">
+								<div class="footer_search input">
 								<input type="text" placeholder="E-mail" name="Footer_feedback_1">
 								<input type="submit" value="Вперед" class="feedback" name="Footer_feedback_2">
+								</div>
 							</form>
 						</div>
 					</ul>
