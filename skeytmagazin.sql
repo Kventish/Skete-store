@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 30 2023 г., 08:44
+-- Время создания: Июн 01 2023 г., 12:14
 -- Версия сервера: 10.4.27-MariaDB
--- Версия PHP: 8.0.25
+-- Версия PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,8 +38,42 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `skate_id`, `amount_skate`) VALUES
-(5, 2, 3),
-(8, 3, 1);
+(12, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `cart_feedback`
+--
+
+CREATE TABLE `cart_feedback` (
+  `id` int(11) NOT NULL,
+  `cart_id` int(11) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `discription_feedback` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `cart_feedback`
+--
+
+INSERT INTO `cart_feedback` (`id`, `cart_id`, `name`, `email`, `discription_feedback`) VALUES
+(1, 9, 'test', 'test', 'test'),
+(2, 10, 'test', 'test', 'test'),
+(3, 9, 'test', 'test', 'test'),
+(4, 10, 'test', 'test', 'test'),
+(5, 9, 'test', 'test', 'test'),
+(6, 10, 'test', 'test', 'test'),
+(7, 9, 'test', 'test', 'test'),
+(8, 10, 'test', 'test', 'test'),
+(9, 9, 'test', 'test', 'test'),
+(10, 10, 'test', 'test', 'test'),
+(11, 9, 'test', 'test', 'test'),
+(12, 10, 'test', 'test', 'test'),
+(13, 9, 'test', 'test', 'test'),
+(14, 10, 'test', 'test', 'test'),
+(15, 11, 'Зарина', 'test', 'Купить');
 
 -- --------------------------------------------------------
 
@@ -128,6 +162,12 @@ ALTER TABLE `cart`
   ADD KEY `skate_id` (`skate_id`);
 
 --
+-- Индексы таблицы `cart_feedback`
+--
+ALTER TABLE `cart_feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `feedback`
 --
 ALTER TABLE `feedback`
@@ -154,7 +194,13 @@ ALTER TABLE `type_skateboard`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблицы `cart_feedback`
+--
+ALTER TABLE `cart_feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `feedback`
